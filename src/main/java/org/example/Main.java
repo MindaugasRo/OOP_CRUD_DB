@@ -33,7 +33,7 @@ public class Main {
                     Author.editAuthor(sc);
                     break;
                 case 4:
-
+                    Author.deleteAuthor(sc);
                     break;
                 case 5:
                     programExit();

@@ -163,6 +163,14 @@ public class Author {
         }
     }
 
+    public static void deleteAuthor(Scanner sc) {
+        printAuthors();
+        System.out.println("Įveskite autoriaus ID kurį norite ištrinti");
+        Author a = findById(sc.nextLong());
+        sc.nextLine();
+        a.delete(a.id);
+        System.out.println("Autorius " + a + " ištrintas.");
+    }
     public static void printAuthors (){
         ArrayList<Author> authors = Author.selectAll();
         for (Author author : authors ) {
