@@ -2,11 +2,13 @@ package org.example.models;
 
 import org.example.Main;
 
+import javax.xml.namespace.QName;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Author {
     private long id;
@@ -79,7 +81,7 @@ public class Author {
             PreparedStatement pst = con.prepareStatement(query);
             pst.setLong(1,id);
             ResultSet rs = pst.executeQuery();
-            while ((rs.next())){
+            while (rs.next()){
                 aut = new Author (rs.getLong("id"), rs.getString("name"), rs.getString("surname"));
             }
             con.close();
@@ -105,6 +107,18 @@ public class Author {
         } catch (Exception e) {
             System.out.println("Failed to retrieve author!");
         }
+    }
+
+    public static void createNewAuthor(Scanner sc) {
+        System.out.println("Naujo autoriaus įvedimas");
+            System.out.println("Įveskite autoriaus vardą");
+            String name = sc.nextLine();
+            System.out.println("Įveskite autoriaus pavardę");
+            String surName = sc.nextLine();
+            create(name,surName);
+            System.out.println("!!! Naujas autorius sukurtas !!!");
+//        }
+
     }
 
     public void update(){

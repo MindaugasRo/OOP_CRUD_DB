@@ -27,13 +27,16 @@ public class Main {
                     Author.printAuthors();
                     break;
                 case 2:
-
+                    Author.createNewAuthor( sc);
                     break;
                 case 3:
+
                     break;
                 case 4:
+
                     break;
                 case 5:
+                    programExit();
                     break;
             }
         }
