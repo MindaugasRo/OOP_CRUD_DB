@@ -3,10 +3,7 @@ package org.example.models;
 import org.example.Main;
 
 import javax.xml.namespace.QName;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -92,6 +89,20 @@ public class Author {
         }
         return aut;
 
+    }
+
+    public static void editAuthor(Scanner sc) {
+        printAuthors();
+        System.out.println("Įveskite autoriaus ID kurį norite redaguoti");
+        Author a = findById(sc.nextLong());
+        sc.nextLine();
+        System.out.println("Įveskite naują Vardą");
+        String name = sc.nextLine();
+        a.setName(name);
+        System.out.println("Įveskite naują Pavardę");
+        String surname = sc.nextLine();
+        a.setSurName(surname);
+        a.update();
     }
 
     public static void create(String name, String surname) {

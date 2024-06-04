@@ -30,7 +30,7 @@ public class Main {
                     Author.createNewAuthor( sc);
                     break;
                 case 3:
-
+                    Author.editAuthor(sc);
                     break;
                 case 4:
 
