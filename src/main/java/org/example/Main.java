@@ -4,24 +4,41 @@ import org.example.models.Author;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        //Author.printAuthors();
-
         Scanner sc = new Scanner(System.in);
+        mainMenu();
+    }
 
+    public static void mainMenu(){
+        Scanner sc = new Scanner(System.in);
         while (true) {
-            menuOptionsMessage();
+            menuOptionMessage();
             int optionInput = numberInput(sc);
             sc.nextLine();
+            switch (optionInput) {
+                case 1:
+                    menuForAuthors();
+                    break;
+                case 2:
+                    menuForBooks();
+                    break;
+                case 3:
+                    programExit();
+                    break;
+            }
+        }
+    }
 
+    public static void menuForAuthors(){
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            authorMenuOptionMessage();
+            int optionInput = numberInput(sc);
+            sc.nextLine();
             switch (optionInput) {
                 case 1:
                     Author.printAuthors();
@@ -36,7 +53,33 @@ public class Main {
                     Author.deleteAuthor(sc);
                     break;
                 case 5:
-                    programExit();
+                    mainMenu();
+                    break;
+            }
+        }
+    }
+
+    public static void menuForBooks() {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            booksMenuOptionMessage();
+            int optionInput = numberInput(sc);
+            sc.nextLine();
+            switch (optionInput) {
+                case 1:
+                    booksMenuOptionMessage();
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    mainMenu();
                     break;
             }
         }
@@ -54,14 +97,33 @@ public class Main {
         return connection;
     }
 
-    public static void menuOptionsMessage() {
+    public static void menuOptionMessage() {
+        System.out.println();
+        System.out.println("---------------");
+        System.out.println(" 1 - Autorių valdymas");
+        System.out.println(" 2 - Knygų valdymas");
+        System.out.println(" 3 - Uždaryti programą");
+        System.out.println("---------------");
+    }
+
+    public static void authorMenuOptionMessage() {
         System.out.println();
         System.out.println("---------------");
         System.out.println(" 1 - Rodyti autorių sąrašą");
         System.out.println(" 2 - Įvesti naują autorių");
         System.out.println(" 3 - Redaguoti autorių sąrašą");
         System.out.println(" 4 - Ištrinti autorių");
-        System.out.println(" 5 - Stabdyti programą");
+        System.out.println(" 5 - Atgal į pagrindinį meniu");
+        System.out.println("---------------");
+    }
+    public static void booksMenuOptionMessage() {
+        System.out.println();
+        System.out.println("---------------");
+        System.out.println(" 1 - Rodyti knygų sąrašą");
+        System.out.println(" 2 - Įvesti naują knygą");
+        System.out.println(" 3 - Redaguoti knygų sąrašą");
+        System.out.println(" 4 - Ištrinti knygą");
+        System.out.println(" 5 - Atgal į pagrindinį meniu");
         System.out.println("---------------");
     }
 
