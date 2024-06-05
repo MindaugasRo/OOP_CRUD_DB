@@ -127,9 +127,6 @@ public class Author {
             System.out.println("Įveskite autoriaus pavardę");
             String surName = sc.nextLine();
             create(name,surName);
-            System.out.println("!!! Naujas autorius sukurtas !!!");
-//        }
-
     }
 
     public void update(){
