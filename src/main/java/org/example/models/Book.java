@@ -62,6 +62,11 @@ public class Book {
 
     }
 
+    // sukurti paiešką naudojant SelectAll pavyzdį
+    public static Book findBook (Scanner sc) {
+      return findBook(sc);
+    }
+
     public static void create(String title, String genre, long author_id) {
         String query = "INSERT INTO `books` (`title`, `genre`, author_id) VALUES (?,?,?)";
         try {
@@ -171,6 +176,13 @@ public class Book {
         this.author_id = author_id;
     }
 
+    public static void printBooks() {
+        ArrayList<Book> books = Book.selectAll();
+        for (Book book : books) {
+            System.out.println(book.getId() + " " + book.getTitle() + " " + book.getGenre());
+        }
+    }
+
     public long getId() {
         return id;
     }
@@ -203,12 +215,6 @@ public class Book {
         this.author_id = author_id;
     }
 
-    public static void printBooks() {
-        ArrayList<Book> books = Book.selectAll();
-        for (Book book : books) {
-            System.out.println(book.getId() + " " + book.getTitle() + " " + book.getGenre());
-        }
-    }
 
     @Override
     public String toString() {

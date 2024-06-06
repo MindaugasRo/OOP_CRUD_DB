@@ -75,18 +75,21 @@ public class Main {
                     Book.printBooks();
                     break;
                 case 2:
-                    Book.createNewBook(sc);
+                    Book.findBook(sc);
                     break;
                 case 3:
-                    Book.updateBook(sc);
+                    Book.createNewBook(sc);
                     break;
                 case 4:
-                    Book.deleteAuthor(sc);
+                    Book.updateBook(sc);
                     break;
                 case 5:
-                    mainMenu();
+                    Book.deleteAuthor(sc);
                     break;
                 case 6:
+                    mainMenu();
+                    break;
+                case 7:
                     programExit();
                     break;
             }
